@@ -1,0 +1,66 @@
+[v-cloak] {
+  display: none;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(30, 42, 83);
+  font-family: Arial;
+  font-size: 20px;
+  color: white;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li{
+  margin-bottom: 10px;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.form {
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.form__input {
+  height: 30px;
+  width: 100%;
+  border-radius: 6px;
+  padding-left: 10px;
+  border: none;
+  margin-bottom: 15px;
+}
+
+.form__btn {
+  height: 100%;
+  border-radius: 6px;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.del-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+
+.input-edit {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 5px;
+  border-radius: 6px;
+}

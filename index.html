@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue"></script>
+  <script src="app.js" defer></script>
+  <link href="style.css" rel="stylesheet">
+  <title>Notes-1</title>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div id="app" v-cloak>
+      <h1>{{ title }}</h1>
+      <form class="form" action="" @submit.prevent="onSubmit">
+        <input class="form__input"
+          type="text"
+          required
+          v-model="input.value"
+          :placeholder="input.placeholder"
+        >
+      <button class="form__btn" type="submit">Add new note</button>
+      </form>
+
+      <div class="notes">
+        <ul>
+          <li
+            class="note"
+            v-for="(note, ind) in notes"
+            :key="ind"
+          >
+            <button class="del-btn" @click="remove(ind)">&#10005;</button>
+            <span
+            >
+              {{ note }}
+            </span>
+            <!-- <input
+              v-else-if="isEdit"
+              class="input-edit"
+              v-model="newInput"
+              @keypress.enter="handleInputChange(ind)"
+            > -->
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
