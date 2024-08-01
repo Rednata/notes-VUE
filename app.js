@@ -7,9 +7,9 @@ const App = {
         placeholder: "Type ur note",
       },
       notes: [
-        {note: "task 1", isEdit: false, id: 1},
-        {note: "task 2", isEdit: false, id: 2},
-        {note: "task 3", isEdit: false, id: 3}
+        {text: "task 1", isEdit: false, id: 1},
+        {text: "task 2", isEdit: false, id: 2},
+        {text: "task 3", isEdit: false, id: 3}
       ]
     };
   },
@@ -32,16 +32,27 @@ const App = {
       }
     },
     onSubmit() {
-      this.notes.push(this.input.value);
-
-      // reset
+      const inputNote = {text: this.input.value, isEdit: false, id: this.setId()}
+      this.notes.push(inputNote);
       this.input.value = "";
     },
     remove(index) {
-      console.log(`note: ${index} has been removed`);
       this.notes.splice(index, 1);
     },
-  },
+    changeEditMode (index) {
+      const currentNote = this.notes[index];
+      const currentIsEdit = currentNote.isEdit;
+      currentNote.isEdit = !currentIsEdit;
+    },
+    handleChangeInput (index, text) {
+      const currentNote = this.notes[index];
+      currentNote.text = text;
+      this.changeEditMode (index);
+    },
+    setId () {
+      return String(Math.random()).substring(2, 8);
+    }
+  }
 };
 
 Vue.createApp(App).mount("#app");
